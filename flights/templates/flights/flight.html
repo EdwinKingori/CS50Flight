@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} 
+    Flight
+{% endblock title %} 
+
+{% block content %}
+    <h2>Flight {{flight.id}}</h2>
+    <ul>
+        <li>Origin:{{flight.origin}}</li>
+        <li>Destination:{{flight.destination}}</li>
+        <li>Duration:{{flight.duration}} minutes</li>  
+    </ul><a href="{% url "index" %}">All  Flights</a>
+    <h2>Passengers</h2>
+    <ul>
+        {% for passengers in passenger %}
+            <li>{{passenger}}</li>
+        {%empty%}
+            <li>No Passengers</li>
+        {% endfor %}
+    </ul>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+
+    </form>
+{% endblock content %}
